@@ -14,3 +14,7 @@ class MetropolisHastings:
 
     def gaussian_proposal(self, mean, sigma = 1):
         return np.random.normal(mean, sigma)
+    
+    def proportional_density(self, x):
+        # Target distribution standard normal distribution for now
+        return np.exp(-(x**2) / 2)
