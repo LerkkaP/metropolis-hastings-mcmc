@@ -1,7 +1,7 @@
 from metropolis_hastings import MetropolisHastings
 
 def main():
-    pass
+    metropolis_hastings = MetropolisHastings()
 
 if __name__ == "__main__":
     main()

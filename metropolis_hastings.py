@@ -11,3 +11,6 @@ class MetropolisHastings:
     
     def acceptance_probability(self):
         pass
+
+    def gaussian_proposal(self, mean, sigma = 1):
+        return np.random.normal(mean, sigma)
