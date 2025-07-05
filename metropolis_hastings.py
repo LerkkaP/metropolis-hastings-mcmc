@@ -6,11 +6,18 @@ class MetropolisHastings:
         self.states_accepted = []
         self.states_rejected = []
 
+        self.initial_state = 0
+        self.t = 0
+
+    def algorithm(self):
+        pass
+
     def uniform_distribution(self):
         return np.random.uniform(0, 1)
     
-    def acceptance_probability(self):
-        pass
+    def acceptance_probability(self, x_prime, x_n):
+        ratio = self.proportional_density(x_prime) / self.proportional_density(x_n)
+        return min(1, ratio)
 
     def gaussian_proposal(self, mean, sigma = 1):
         return np.random.normal(mean, sigma)
