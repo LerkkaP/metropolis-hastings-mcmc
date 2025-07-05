@@ -1,16 +1,22 @@
 import numpy as np
-import random
 
 class MetropolisHastings:
     def __init__(self):
-        self.states_accepted = []
-        self.states_rejected = []
+        self.states = []
 
-        self.initial_state = 0
-        self.t = 0
-
-    def algorithm(self):
-        pass
+    def algorithm(self, n = 1000, x_0 = 0):
+        x_n = x_0 # n = 0
+        for _ in range(n):
+            x_prime = self.gaussian_proposal(x_n)
+            acceptance_probability = self.acceptance_probability(x_prime, x_n)
+            u = self.uniform_distribution()
+            if u <= acceptance_probability:
+                x_n = x_prime
+                state = {"value": x_n, "accepted": True}
+                self.states.append(state)
+            else:
+                state = {"value": x_n, "accepted": False}
+                self.states.append(state)
 
     def uniform_distribution(self):
         return np.random.uniform(0, 1)
