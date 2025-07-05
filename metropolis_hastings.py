@@ -3,9 +3,10 @@ import numpy as np
 class MetropolisHastings:
     def __init__(self):
         self.states = []
+        self.samples = []
 
-    def algorithm(self, n = 1000, x_0 = 0):
-        x_n = x_0 # n = 0
+    def algorithm(self, n = 10000, x_0 = 0):
+        x_n = x_0 # initial state
         for _ in range(n):
             x_prime = self.gaussian_proposal(x_n)
             acceptance_probability = self.acceptance_probability(x_prime, x_n)
@@ -17,6 +18,7 @@ class MetropolisHastings:
             else:
                 state = {"value": x_n, "accepted": False}
                 self.states.append(state)
+            self.samples.append(x_n)
 
     def uniform_distribution(self):
         return np.random.uniform(0, 1)
