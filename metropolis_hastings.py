@@ -7,7 +7,7 @@ class MetropolisHastings:
         self.states_rejected = []
 
     def uniform_distribution(self):
-        pass
+        return np.random.uniform(0, 1)
     
     def acceptance_probability(self):
         pass
