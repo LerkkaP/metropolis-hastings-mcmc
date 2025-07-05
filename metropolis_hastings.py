@@ -4,14 +4,16 @@ class MetropolisHastings:
     def algorithm(self, n = 10000, x_0 = 0):
         x_n = x_0 # initial state
         states = []
+        states_accepted = []
         for _ in range(n):
             x_prime = self._gaussian_proposal(x_n)
             acceptance_probability = self._acceptance_probability(x_prime, x_n)
             u = self._uniform_distribution()
             if u <= acceptance_probability:
                 x_n = x_prime
+                states_accepted.append(x_n)
             states.append(x_n)
-        return states
+        return states, states_accepted
 
     def _uniform_distribution(self):
         return np.random.uniform(0, 1)

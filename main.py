@@ -5,8 +5,11 @@ def main():
     metropolis_hastings = MetropolisHastings()
     visualizer = Visualizer()
 
-    states = metropolis_hastings.algorithm()
+    states, states_accepted = metropolis_hastings.algorithm()
+    print(states, states_accepted)
     visualizer.trace_plot(states)
+    visualizer.histogram(states_accepted)
+
 
 if __name__ == "__main__":
     main()
