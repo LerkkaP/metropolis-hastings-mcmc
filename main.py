@@ -1,15 +1,13 @@
-from metropolis_hastings import MetropolisHastings
+from metropolis import MetropolisHastings
 from visualizer import Visualizer
 
 def main():
     metropolis_hastings = MetropolisHastings()
     visualizer = Visualizer()
-
     states, states_accepted = metropolis_hastings.algorithm()
-    print(states, states_accepted)
+    
     visualizer.trace_plot(states)
     visualizer.histogram(states_accepted)
-
 
 if __name__ == "__main__":
     main()

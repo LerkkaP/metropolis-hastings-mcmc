@@ -1,6 +1,6 @@
 import numpy as np
 
-class MetropolisHastings:
+class Metropolis:
     def algorithm(self, n = 10000, x_0 = 0):
         x_n = x_0 # initial state
         states = []
