@@ -1,8 +1,8 @@
-from metropolis import MetropolisHastings
+from metropolis import Metropolis
 from visualizer import Visualizer
 
 def main():
-    metropolis_hastings = MetropolisHastings()
+    metropolis_hastings = Metropolis()
     visualizer = Visualizer()
     states, states_accepted = metropolis_hastings.algorithm()
     
